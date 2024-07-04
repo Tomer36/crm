@@ -1,5 +1,6 @@
 package com.crmproject.crm.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -7,6 +8,7 @@ import java.util.Set;
 @Entity
 public class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // No @GeneratedValue annotation here
 
     private Long businessId;
@@ -18,6 +20,7 @@ public class Customer {
     private String email;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private Set<ActivityLog> activityLogs;
 
     // Getters and Setters

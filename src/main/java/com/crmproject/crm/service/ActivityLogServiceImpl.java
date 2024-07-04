@@ -41,10 +41,14 @@ public class ActivityLogServiceImpl implements ActivityLogService {
         activityLog.setDescription(activityLogDTO.getDescription());
         activityLog.setTimestamp(activityLogDTO.getTimestamp());
         activityLog.setTreatmentNumber(activityLogDTO.getTreatmentNumber());
+        activityLog.setTherapist(activityLogDTO.getTherapist()); // Include this line
+
         Customer customer = customerRepository.findById(activityLogDTO.getCustomerId()).orElse(null);
         User user = userRepository.findById(activityLogDTO.getUserId()).orElse(null);
+
         activityLog.setCustomer(customer);
         activityLog.setUser(user);
+
         return activityLogRepository.save(activityLog);
     }
 
@@ -54,6 +58,7 @@ public class ActivityLogServiceImpl implements ActivityLogService {
             activityLog.setDescription(activityLogDTO.getDescription());
             activityLog.setTimestamp(activityLogDTO.getTimestamp());
             activityLog.setTreatmentNumber(activityLogDTO.getTreatmentNumber());
+            activityLog.setTherapist(activityLogDTO.getTherapist()); // Include this line
             activityLog.setCustomer(customerRepository.findById(activityLogDTO.getCustomerId()).orElse(null));
             activityLog.setUser(userRepository.findById(activityLogDTO.getUserId()).orElse(null));
             return activityLogRepository.save(activityLog);

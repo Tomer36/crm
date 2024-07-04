@@ -3,34 +3,44 @@ package com.crmproject.crm.dto;
 import java.time.LocalDateTime;
 
 public class ActivityLogDTO {
-    private Long id;
+    private Long userId;
+    private Long customerId;
+    private String therapist;
+    private int treatmentNumber;
     private String description;
     private LocalDateTime timestamp;
-    private Long customerId;
-    private Long userId;
-    private int treatmentNumber;
-    private String therapist;
 
-    // Constructors
-    public ActivityLogDTO() {}
+    // Getters and Setters
+    public Long getUserId() {
+        return userId;
+    }
 
-    public ActivityLogDTO(Long id, String description, LocalDateTime timestamp, Long customerId, Long userId, int treatmentNumber, String therapist) {
-        this.id = id;
-        this.description = description;
-        this.timestamp = timestamp;
-        this.customerId = customerId;
+    public void setUserId(Long userId) {
         this.userId = userId;
-        this.treatmentNumber = treatmentNumber;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getTherapist() {
+        return therapist;
+    }
+
+    public void setTherapist(String therapist) {
         this.therapist = therapist;
     }
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
+    public int getTreatmentNumber() {
+        return treatmentNumber;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTreatmentNumber(int treatmentNumber) {
+        this.treatmentNumber = treatmentNumber;
     }
 
     public String getDescription() {
@@ -47,37 +57,5 @@ public class ActivityLogDTO {
 
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
-    }
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public int getTreatmentNumber() {
-        return treatmentNumber;
-    }
-
-    public void setTreatmentNumber(int treatmentNumber) {
-        this.treatmentNumber = treatmentNumber;
-    }
-
-    public String getTherapist() {
-        return therapist;
-    }
-
-    public void setTherapist(String therapist) {
-        this.therapist = therapist;
     }
 }
