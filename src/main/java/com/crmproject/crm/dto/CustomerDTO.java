@@ -1,5 +1,6 @@
 package com.crmproject.crm.dto;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class CustomerDTO {
@@ -10,14 +11,14 @@ public class CustomerDTO {
     private String phone2;
     private String telephone;
 
-    private LocalDateTime birthday;
+    private LocalDate birthday;
 
     private String businessId;
 
     // Constructors
     public CustomerDTO() {}
 
-    public CustomerDTO(Long id, String name, String email, String phone1, String phone2, String telephone, LocalDateTime birthday, String businessId) {
+    public CustomerDTO(Long id, String name, String email, String phone1, String phone2, String telephone, LocalDate birthday, String businessId) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -77,11 +78,11 @@ public class CustomerDTO {
         this.telephone = telephone;
     }
 
-    public LocalDateTime getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDateTime birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
     public String getBusinessId() {
@@ -92,4 +93,17 @@ public class CustomerDTO {
     }
 
 
+    @Override
+    public String toString() {
+        return "CustomerDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone1='" + phone1 + '\'' +
+                ", phone2='" + phone2 + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", businessId='" + businessId + '\'' +
+                ", telephone='" + telephone + '\'' +
+                '}';
+    }
 }

@@ -60,7 +60,10 @@ public class CustomerController {
     })
     @PutMapping("/{id}")
     public CustomerDTO updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
-        return customerService.updateCustomer(id, customerDTO);
+        System.out.println("Updating customer with ID " + id + " using data: " + customerDTO);
+        CustomerDTO updatedCustomer = customerService.updateCustomer(id, customerDTO);
+        System.out.println("Updated customer: " + updatedCustomer);
+        return updatedCustomer;
     }
 
     @Operation(summary = "Delete a customer", description = "Remove a customer from the system")
