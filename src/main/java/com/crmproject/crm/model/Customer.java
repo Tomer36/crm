@@ -1,5 +1,6 @@
 package com.crmproject.crm.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -11,12 +12,13 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // No @GeneratedValue annotation here
 
-    private Long businessId;
+    private String businessId;
     private String name;
     private String phone1;
     private String phone2;
     private String telephone;
-    private LocalDateTime birthDate;
+
+    private LocalDateTime birthday;
     private String email;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -49,19 +51,19 @@ public class Customer {
         this.email = email;
     }
 
-    public LocalDateTime getBirthDate() {
-        return birthDate;
+    public LocalDateTime getBirthday() {
+        return birthday;
     }
 
-    public void setBirthDate(LocalDateTime birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthday(LocalDateTime birthday) {
+        this.birthday = birthday;
     }
 
-    public Long getBusinessId() {
+    public String getBusinessId() {
         return businessId;
     }
 
-    public void setBusinessId(Long businessId) {
+    public void setBusinessId(String businessId) {
         this.businessId = businessId;
     }
 

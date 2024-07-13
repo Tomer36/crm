@@ -36,7 +36,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @GetMapping("/{id}")
-    public Optional<Customer> getCustomerById(@PathVariable Long id) {
+    public Optional<CustomerDTO> getCustomerById(@PathVariable Long id) {
         return customerService.getCustomerById(id);
     }
 
@@ -59,7 +59,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PutMapping("/{id}")
-    public Customer updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
+    public CustomerDTO updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
         return customerService.updateCustomer(id, customerDTO);
     }
 

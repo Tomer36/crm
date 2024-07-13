@@ -9,19 +9,23 @@ public class CustomerDTO {
     private String phone1;
     private String phone2;
     private String telephone;
-    private LocalDateTime birthDate;
+
+    private LocalDateTime birthday;
+
+    private String businessId;
 
     // Constructors
     public CustomerDTO() {}
 
-    public CustomerDTO(Long id, String name, String email, String phone1, String phone2, String telephone, LocalDateTime birthDate) {
+    public CustomerDTO(Long id, String name, String email, String phone1, String phone2, String telephone, LocalDateTime birthday, String businessId) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone1 = phone1;
         this.phone2 = phone2;
         this.telephone = telephone;
-        this.birthDate = birthDate;
+        this.birthday = birthday;
+        this.businessId = businessId;
     }
 
     // Getters and Setters
@@ -73,11 +77,19 @@ public class CustomerDTO {
         this.telephone = telephone;
     }
 
-    public LocalDateTime getBirthDate() {
-        return birthDate;
+    public LocalDateTime getBirthday() {
+        return birthday;
     }
 
-    public void setBirthDate(LocalDateTime birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthday(LocalDateTime birthday) {
+        this.birthday = birthday;
     }
+    public String getBusinessId() {
+        return businessId;
+    }
+    public void setBusinessId(String businessId) {
+        this.businessId = businessId;
+    }
+
+
 }
