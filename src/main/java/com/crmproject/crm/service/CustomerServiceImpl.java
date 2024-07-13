@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -16,8 +17,18 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerRepository customerRepository;
 
     @Override
-    public List<Customer> getAllCustomers() {
-        return customerRepository.findAll();
+    public List<CustomerDTO> getAllCustomers() {
+        return customerRepository.findAll().stream()
+                .map(customer -> new CustomerDTO(
+                        customer.getId(),
+                        customer.getName(),
+                        customer.getEmail(),
+                        customer.getPhone1(),
+                        customer.getPhone2(),
+                        customer.getTelephone(),
+                        customer.getBirthDate()
+                ))
+                .collect(Collectors.toList());
     }
 
     @Override
